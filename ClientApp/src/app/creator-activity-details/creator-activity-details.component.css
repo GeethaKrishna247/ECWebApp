@@ -1,0 +1,37 @@
+.alignNewReq {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: flex-end;
+}
+
+table td.actions, table th.actions {
+    text-align: center;
+}
+
+.dotsAlign {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.greenDot {
+    width: 12px;
+    height: 12px;
+    background-color: #2DB81F;
+    border-radius: 50%;
+}
+
+.yellowDot {
+    width: 12px;
+    height: 12px;
+    background-color: #E9C71D;
+    border-radius: 50%;
+}
+
+.redDot {
+    width: 12px;
+    height: 12px;
+    background-color: #B81F2D;
+    border-radius: 50%;
+}

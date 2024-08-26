@@ -1,0 +1,641 @@
+.nav-wrapper {
+  border-bottom: 1px solid #75787B;
+  float: left;
+  width: 100%;
+  /* background: var(--blue-very-light); */
+  height: 50px;
+  border-radius: 8px 8px 0 0;
+}
+
+.nav.nav-pills.nav-fill {
+  /* width: 69%;
+  display: inline-block; */
+  float: left;
+}
+
+li.nav-item {
+  display: flex;
+  background: var(--blue-very-light);
+}
+
+li.nav-item:first-child {
+  border-radius: 8px 0 0 0;
+}
+
+li.nav-item:last-child {
+  border-radius: 0 8px 0 0;
+}
+
+.nav.nav-pills>.nav-item:first-child>.nav-link.active {
+  border-radius: 8px 0 0 0;
+}
+
+.nav.nav-pills>.nav-item:last-child>.nav-link.active {
+  border-radius: 0px 8px 0 0;
+}
+
+.nav.nav-pills>.nav-item:only-child>.nav-link.active {
+  border-radius: 8px 8px 0 0;
+}
+
+.nav-link {
+  width: 100%;
+  color: #000048 !important;
+  border-radius: 0;
+  cursor: pointer;
+  padding: 16px 24px;
+  text-transform: capitalize;
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  background-color: #E6EFF6;
+}
+
+
+a.nav-link.active,
+a.nav-link:hover {
+  background: #FFFFFF;
+  border-top: 3px solid #2F78C4;
+  margin: 0;
+  color: #2F78C4 !important;
+  display: flex;
+  align-items: center;
+  border-bottom: none;
+  height: 49px;
+  font-family: 'Cognizant-Sans-bold';
+}
+
+li.nav-item:first-child a.nav-link {
+  border-top-left-radius: 8px !important;
+}
+
+li.nav-item:last-child a.nav-link {
+  border-top-right-radius: 8px !important;
+}
+
+a.nav-link.active.error {
+  color: #DA1E28 !important;
+}
+
+a.nav-link.error {
+  color: #DA1E28 !important;
+}
+
+.nav-link.mandatory {
+  background: url(/1738/MLSApp/assets/warning.png) 96% no-repeat;
+  padding-right: 30px;
+}
+
+.nav-link.mandatory.active {
+  background: #FFFFFF url(/1738/MLSApp/assets/warning.png) 96% no-repeat !important;
+  padding-right: 30px;
+  /* background-color: #FFFFFF; */
+}
+
+/* overflow tab dropdown starts */
+.nav-overflow-drpdown {
+  background-color: #F2F2F2;
+  padding: 0 0 0 10px;
+  cursor: pointer;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  height: 40px;
+}
+
+.overflowDrpDownImg {
+  padding: 0 16px;
+}
+
+.openoverflowDrpDownImg {
+  transform: rotate(180deg);
+}
+
+.overflowTab {
+  position: relative;
+  /* height: 40px; */
+}
+
+.tabDropDown {
+  border: 1px solid #eaeaea;
+}
+
+.overflowdrop {
+  top: 50px !important;
+  left: 0px;
+  right: 0px;
+}
+
+.tabTitleDropDown {
+  padding: 12px 16px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.tabTitleDropDown:hover {
+  background-color: #F2F2F2;
+}
+
+.tabSelected {
+  color: var(--accent2-dark);
+}
+
+.feelingLucky {
+  text-decoration: underline;
+}
+
+.nav-link.active>.nav-overflow-drpdown {
+  color: var(--accent2-dark);
+  font-family: var(--font-semiBold);
+}
+
+/* overflow tab dropdown ends */
+
+.sort-wrapper {
+  display: inline-block;
+  font-size: 14px;
+  /* float: right; */
+  /* color: #A7A5A5; */
+  line-height: 34px;
+  padding-left: 20px;
+  float: right;
+}
+
+.blueText {
+  margin: 0 5px;
+  cursor: pointer;
+  line-height: 17px;
+}
+
+.dropdwnImg {
+  background: url(/1738/MLSApp/assets/dropdown_new.png) center no-repeat;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  float: right;
+  cursor: pointer;
+}
+
+.link-list {
+  position: absolute;
+  min-width: 149px !important;
+  list-style-type: none;
+  margin: 0;
+  border: 1px solid var(--accent2-light);
+  background: #fff;
+  right: -74px;
+  top: 0px;
+  z-index: 9;
+  border-radius: 5px;
+}
+
+.link-list li {
+  width: 100%;
+  float: left;
+  /* background: #ffffff; */
+  font-size: 14px;
+  padding: 10px 13px !important;
+}
+
+.link-list li:hover {
+  background: #F2F2F2;
+}
+
+.blueborder {
+  border-radius: 0;
+}
+
+.searchInput {
+  width: 80%;
+  height: 39px;
+  border: 0;
+  display: inline-block;
+  flex: 0 0 100%;
+  max-width: 100%;
+  position: relative;
+  outline: none;
+  float: left;
+  padding-left: 15px;
+  background-color: #F2F2F2;
+  border-radius: 8px 0 0 8px;
+}
+
+.clear-search {
+  /* float: left; */
+
+  /* padding: 13px 32px; */
+  width: 20%;
+  font-weight: bold;
+  cursor: pointer;
+  height: 40px;
+  display: inline-block;
+}
+
+.search {
+  display: inline-block;
+  border-left: 1px solid #0033A0;
+}
+
+.searchbtn {
+  display: inline-block;
+  border-left: 1px solid #0033A0 !important;
+  background-color: transparent;
+  background: url(/1738/MLSApp/assets/search.png) center no-repeat;
+  display: block;
+  width: 30px;
+  height: 30px;
+  float: left;
+  font-size: 14px;
+}
+
+.search-fav {
+  background: url(/1738/MLSApp/assets/search_blue.png) center no-repeat;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  float: right;
+  /* margin-left: 25px; */
+  cursor: pointer;
+  background-color: #F2F2F2;
+  border-radius: 8px;
+}
+
+.search-fav.searchBarOpened {
+  border-radius: 0 8px 8px 0;
+}
+
+.fav_searchBar {
+  width: 20%;
+  height: 40px;
+  position: relative;
+  float: right;
+  background: #F2F2F2;
+  border-radius: 8px 0 0 8px;
+  /* top: 3.5rem; */
+  /* border-bottom: 1px solid #75787B !important;
+*/
+
+}
+
+/** Desktop View CSS **/
+@media only screen and (min-width: 1024px) {
+  /* .nav.nav-pills.nav-fill {
+  width: 65%;
+  float: left;
+} */
+
+  .removeIcon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .plusIcon {
+    width: 32px;
+    height: 32px;
+  }
+
+}
+
+.dropdownWrapper {
+  float: right;
+  padding: 9px;
+  margin-bottom: 0px;
+  margin-left: 5px;
+  min-width: 150px;
+  background: #F2F2F2 url(/1738/MLSApp/assets/dropdown_new.png) 95% no-repeat;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+
+}
+
+.dropdownWrapper:active {
+  background: #ffffff url(/1738/MLSApp/assets/dropdown_invert_new.png) 95% no-repeat !important;
+  border: 1px solid #2D67FF !important;
+}
+
+.dropdownWrapper:hover {
+  /* background: #ffffff url(/1738/MLSApp/assets/dropdown_new.png) 95% no-repeat; */
+  border-bottom: 1px solid var(--accent2-dark) !important;
+}
+
+.status-dropdown:hover {
+  border-bottom: 1px solid #2D67FF;
+  background: #F2F2F2 url(/1738/MLSApp/assets/dropdown_new.png) 95% no-repeat;
+}
+
+/* a.nav-link:hover {
+background-color: #F2F2F2 !important;
+
+} */
+
+.nav-link.mandatory:hover {
+  background-color: #F2F2F2 !important;
+}
+
+a.nav-link:focus,
+a.nav-link:active {
+  /* background-color: #F2F2F2 !important; */
+  border: none !important;
+  /* margin-bottom: 0px !important;
+padding: 12px 24px; */
+  /* padding: 0px 2px; */
+}
+
+.nav-link.mandatory:focus,
+.nav-link.mandatory:active {
+  background-color: #F2F2F2 !important;
+  border: 1px solid #2d67FF !important;
+}
+
+.fav_searchBar input {
+  border: none !important;
+}
+
+.fav_searchBar:hover input {
+  border-bottom: none !important;
+}
+
+.fav_searchBar:hover {
+  border-bottom: 1px solid var(--accent2-dark) !important;
+}
+
+.fav_searchBar:active input {
+  border: none !important;
+  height: 42px !important;
+}
+
+.fav_searchBar:active {
+  border: 1px solid #2D67FF !important;
+}
+
+.PopOverArrow {
+  background: url('/assets/dropdown_invert_new.png') #FFF no-repeat 95% !important;
+  box-shadow: 0px 1px 1px var(--accent2-dark);
+  /* background-size: 15px 10px !important; */
+}
+
+/* .dropdownWrapper:active.PopOverArrow, .dropdownWrapper:hover.PopOverArrow {
+background: #F2F2F2 url('^assets/dropdown_invert_new.png') 95% no-repeat;
+} */
+.mobileTab {
+  display: none;
+}
+
+
+@media only screen and (min-width: 550px) and (max-width: 900px) {
+  .nav.nav-pills.nav-fill {
+    width: 100%;
+    float: left;
+  }
+
+  .fav_searchBar {
+    top: 7.5rem;
+  }
+
+  .searchInput {
+    width: 95%;
+  }
+}
+
+@media only screen and (max-width: 520px) {
+  .nav-wrapper {
+    background: none;
+  }
+
+  ul.nav.nav-pills.nav-fill {
+    width: 100% !important;
+    margin-bottom: 1rem;
+  }
+
+
+  .nomobile {
+    display: none !important;
+  }
+
+  .mobileTab {
+    position: relative;
+    display: inline-block;
+    background-size: 18%;
+    width: 100%;
+  }
+
+  .mobileTab .tabinput {
+    border-bottom: none !important;
+    /* color: #0033A0; */
+    /* font: normal normal normal 16px/21px Cognizant-Sans; */
+    color: #000 !important;
+    font-size: 16px !important;
+  }
+
+  .mobileTab .showSortDropDown {
+    width: 100%;
+  }
+
+  .normalBg {
+    background: #F2F2F2 url(/assets/dropdown_new.png) 93% no-repeat !important;
+  }
+
+  .mobileTab>.normalBg.tabinput {
+    background: #F2F2F2 url(/assets/dropdown_new.png) 93% no-repeat !important;
+  }
+
+  .normalBgActive {
+    background: var(--white) url(/assets/nav_top.png) 96% no-repeat !important;
+    box-shadow: 0px 1px 1px var(--accent2-dark);
+  }
+
+  .mobileTab>.normalBgActive.tabinput {
+    background: var(--white) url(/assets/nav_top.png) 96% no-repeat !important;
+    box-shadow: 0 1px 1px solid var(--accent2-dark);
+  }
+
+  .ddactive {
+    background: #F2F2F2 url(/assets/dropdown_new.png) 100% no-repeat !important;
+  }
+
+  .ddnotactive {
+    background: #F2F2F2 url(/assets/nav_top.png) 100% no-repeat !important;
+  }
+
+  li.sortNames {
+    padding: 10px;
+    font-size: 13px;
+    width: auto;
+  }
+
+  .sortddUl {
+    background-color: white;
+    width: 100%;
+    padding: 0px;
+    /* box-shadow: 0px 3px 6px #00000029; */
+    border: 1px solid var(--accent2-light);
+    border-radius: 8px;
+  }
+
+  .sortddUl ul {
+    list-style: none;
+    margin: 0;
+  }
+
+  li.sortNames {
+    padding: 10px;
+    font-size: 13px;
+    width: auto;
+  }
+
+  .sortddUl ul li.sortNames:hover {
+    background: #f2f2f2;
+    cursor: pointer;
+    padding: 10px;
+  }
+
+  .showSortDropDown {
+    z-index: 1;
+    position: absolute;
+    width: auto;
+    z-index: 9999;
+    min-width: 140px;
+  }
+
+  .mobileTab .showSortDropDown {
+    width: 100%;
+  }
+
+  .sortTitle {
+    font-size: 16px;
+  }
+
+  .nav-wrapper {
+    border-bottom: none;
+  }
+
+  .inputfieldStyle {
+    width: 100%;
+  }
+
+}
+
+.mobileTab>.tabinput.normalBgActive {
+  border-bottom: 1px solid #2D67FF !important;
+}
+
+/*CSS required for We Connect and query corner merge*/
+
+.nav-link.post {
+  background: #fff url(/1738/MLSApp/assets/weConnect_Posts_grey.svg)15% no-repeat !important;
+  background-size: 26px 26px !important;
+  padding: 10px 20px 10px 50px;
+}
+
+.nav-link.post.active {
+  background: #fff url(/1738/MLSApp/assets/weConnect_Posts_blue.svg)15% no-repeat !important;
+  background-size: 26px 26px !important;
+  padding: 10px 20px 10px 50px;
+}
+
+.nav-link.question {
+  background: #fff url(/1738/MLSApp/assets/weConnect_Questions_grey.svg)15% no-repeat !important;
+  background-size: 26px 26px !important;
+  padding: 10px 20px 10px 50px;
+}
+
+
+.nav-link.question.active {
+  background: #fff url(/1738/MLSApp/assets/weConnect_Questions_blue.svg)15% no-repeat !important;
+  background-size: 26px 26px !important;
+  padding: 10px 20px 10px 50px;
+}
+
+.tooltipforSelectedTabName {
+  background-color: var(--primary);
+  color: #FFFFFF;
+  padding: 10px 12px;
+}
+
+.dropDownSymbolInvert {
+  transform: rotate(180deg);
+}
+
+
+/* search bar animation */
+.curtainEffect {
+  background-color: #0033A0;
+  width: 100%;
+  height: 48px;
+  z-index: 1;
+  position: absolute;
+  top: -48px;
+}
+
+.animated {
+  -webkit-animation-duration: .2s;
+  animation-duration: .2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeInRight {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateX(20px);
+    width: 100%;
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    width: 0%;
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 1;
+    transform: translateX(20px);
+    width: 100%;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+    width: 0%;
+  }
+}
+
+
+.fadeInEffect {
+  -webkit-animation-name: fadeInRight;
+  animation-name: fadeInRight;
+}
+
+/* search bar animation */
+
+
+.fav_searchBar {
+  animation: fadeInRight1 .2s ease-in-out;
+}
+
+@keyframes fadeInRight1 {
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.info_text {
+  background-color: black;
+  color: white;
+  width: 190px;
+  padding: 10px;
+  font-size: 12px;
+
+}
+
+.asterikimage {
+  margin: 4px 0px 1px 5px;
+}

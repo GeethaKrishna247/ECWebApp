@@ -1,0 +1,32 @@
+.modal {
+  background: rgba(0, 0, 72, 0.6);
+}
+
+.modal-dialog {
+    /* -webkit-transform: translate(0,-50%) !important;
+    -o-transform: translate(0,-50%) !important; 
+    transform: translate(0,-50%) !important;*/
+    top: 50px;
+    margin: 0 auto;
+}
+.modal-content{
+  /* border-radius: 10px; */
+  border:none !important;
+}
+.modal-header {
+  height: 50px;
+  background-color: #000048;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+.modal-body {
+  padding:24px;
+  /* border:1px solid #D0D0CE; */
+  border-top:none
+}
+.modal-footer {
+  background-color: #E8E8E6;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+

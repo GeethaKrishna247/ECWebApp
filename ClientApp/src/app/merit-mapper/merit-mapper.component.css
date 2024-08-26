@@ -1,0 +1,491 @@
+@media (min-width: 1200px) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl {
+        max-width: 1183px;
+    }
+}
+.reportHeading{
+    padding: 10px;
+    /* border-left: 1px solid #8dbdcb;
+    background: #0c7390; */
+    border-left: 1px solid #000048;
+    background: #000048;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+}
+.application3{
+    padding-right: 10px;
+    float: left;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.container .content-box .title {
+    /* margin-top: 43px; */
+    font-size: 20px;
+    color: #000048;
+    font-weight: bold;
+}
+.container .content-box {
+    padding: 20px 0;
+    /* background: #f0f0f0; */
+    overflow: hidden;
+    /* width: 1158px !important; */
+    /* min-height: 566px; */
+    /* border: 1px solid #ccc; */
+}
+.container .content-box {
+    /* background: #f0f0f0; */
+    float: left;
+    width: 100%;
+    /* z-index: 999999; */
+    /* position: absolute; */
+    /* min-height: 566px; */
+    /* border: 1px solid #ccc; */
+}
+.container .content-box .title label {
+    font-size: 20px;
+    float: left;
+} 
+.container .content-box .title .search-field {
+    position: relative;
+    float: left;
+    clear: both;
+}
+.container .content-box .title input[type="text"] {
+    float: left;
+    clear: both;
+    /* margin-top: 8px;
+    border: 1px solid #d0d0d0;
+    padding: 10px 15px;
+    font-size: 12px;
+    color: #383838; */
+    width: 100%;
+}
+.container .content-box .title .search-field button {
+    position: absolute;
+    right: 0;
+    top: 3px;
+    /* background: url(/assets/search.png) center no-repeat; */
+    width: 43px;
+    height: 37px;
+    cursor: pointer;
+    border: none;
+}
+.notesec, .notesec u{
+    /* color: #000000; */
+    font-size: 12px;
+    line-height: normal;
+    /* padding: 15px 0; */
+    font-style: italic;
+    margin-left: 40px;
+    /* width: 550px; */
+}
+/* .activity-header .first, .activity-header-body .first{
+    width: 40px;
+}
+.activity-header .middle, .activity-header-body .middle{
+    width: 500px;
+}
+.activity-header-body .middle, .activity-header-body .last{
+    padding: 22px 0 22px 5px !important;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 50%;
+} */
+ul{
+    margin-bottom: 0px !important;
+}
+.static{
+    /* background-color: #50b3cf; */
+    background-color: #2E308E;
+    height: 65px;
+    display: flex;
+    padding: 22px 0;
+    font-weight: bold;
+}
+.static span{
+    color: white;
+}
+/* .activity-header-body .first{
+    background-color: #d0d0d0;
+    padding: 22px 0;
+    height: inherit;
+    width: 40px;
+    text-align: center;
+} */
+li{
+    list-style: none;
+    border: 1px solid #e5e5e5;
+    margin-bottom: 0px !important;
+    display: flex;
+}
+.attemptDetails{
+    display: block;
+    padding-left: 40px;
+}
+.attemptDetails div{
+    padding-top: 10px;
+}
+.attemptDetails div:last-child{
+    padding-bottom: 10px;
+}
+.attemptDetails .dates, .attemptDetails .popupView{
+    padding-left: 40px;
+}
+.popupView{
+    max-width: 272px;
+    width: max-content;
+    display: block;
+}
+.app-modal-head{
+    color: white !important;
+    /* font-weight: bold; */
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 70%;
+}
+.tableStyle thead{background-color: #2E308E;}
+.tableStyle thead th{
+    color: white;
+    font-size: 14px;
+    /* padding: 13px 12px !important; */
+    text-align: left;
+}
+/* .tableStyle tbody{font-size: 13px;} */
+.details div{
+    padding-bottom: 16px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.details div span:first-child{
+    width: 160px;
+    display: inline-block;
+}
+.app-modal-header-td{
+    padding: 0 0.5rem 0rem 0.5rem;
+    display: flex;
+    align-items: center;
+    /* border-top-left-radius: 5px;
+    border-top-right-radius: 5px; */
+    background-color: #000048;
+}
+.topicDetailPopup .modal-content{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.activityRow td{
+    max-width: 150px;
+}
+.activityRow td:last-child{
+    width: 100px;
+}
+.details div, li {
+    font-size: 14px;
+}
+.activityRow td{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 14px;
+}
+.searchtextspan {
+  display: inline-block;
+  /* margin-top: 20px; */
+  border-bottom: 1px solid #75787B !important;
+  border-radius: 8px !important;
+  width: 474px;
+}
+.bgwhite{
+  background-color: white !important;
+}
+input[type="text"]{
+    border-radius: 8px !important;
+}
+.searchText {
+  background-color: #F2F2F2 !important;
+  width: 388px;
+  height: 40px;
+  padding: 10px;
+  border: none;
+  outline: none !important;
+  font-size: 14px;
+  border-bottom-left-radius: 8px;
+  border-top-left-radius: 8px;
+  border-radius: 8px !important;
+}
+.searchText:focus, input[type="text"]:focus{
+    background-color: #ffffff !important;
+    border-bottom: transparent !important;
+}
+::placeholder{
+    color: #000048;
+}
+
+
+  
+.searchBarInEdit{
+    background: url(/assets/meritsearch.png) no-repeat 70%;
+    width: 40%;
+  }
+  .crossmark{
+    background: url(/assets/close-black.png) no-repeat 70%;
+  }
+  .searchBarInEdit:focus{
+    /* background-color: white; */
+  }
+
+  .flex-table {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .flex-row {
+    display: flex;
+  }
+  .flex-cell {
+    flex: 1;
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+
+
+.main-table, 
+.nested-table { 
+width: 100%; 
+border-collapse: collapse; 
+margin-bottom: 0px; 
+} 
+ 
+.headsec{
+/* .d-flex align-items-center float-start mb-4 */
+display: flex;
+align-items: center;
+/* float: float-start; */
+margin-bottom: 20px;
+margin-top: 20px;
+}
+ 
+.main-table th, 
+.main-table td, 
+.nested-table th, 
+.nested-table td { 
+text-align: left; 
+} 
+
+.main-table td, .main-table th, .nested-table th{
+    font-size: 15px;
+}
+ 
+.main-table th, 
+.nested-table th { 
+font-weight: bold; 
+} 
+.colSpan3{
+    padding: 16px 5%;
+}
+.colSpan3 table thead{
+    background-color: transparent !important;
+}
+.colSpan3 table thead tr th{
+    color: unset !important;
+}
+.colSpan3 tbody tr td{
+    font-size: 14px;
+}
+
+.nested-table th{
+    width: 20%;
+}
+
+.boldcls span{
+    font-weight: bold;
+}
+
+.boldcls span:last-child{
+    padding-right: 5px;
+}
+
+.nested-table thead tr th{
+    background-color: transparent !important;
+}
+
+/* .activity-header-body td:first-child{
+    width: 5%;
+}
+ .activity-header-body td{
+    width: 60%;
+}
+.activity-header-body td:last-child{
+    width: 35%;
+}
+.main-table thead:first-child th:first-child{
+    width: 5%;
+}
+.main-table thead:first-child th{
+    width: 60%;
+}
+.main-table thead:first-child th:last-child{
+    width: 35%;
+} */
+.activity-header-body .last, .activity-header-body .middle{
+    /* padding: 22px 0 22px 5px !important; */
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    line-height: 18px;
+}
+.activity-header-body .middle{
+    width: 613px;
+}
+.activity-header-body .last{
+    width: 336px;
+}
+.bold{
+    font-weight: bold;
+}
+.customScroller{
+    /* padding-right: 4px; */
+}
+
+
+
+/* .table-container {
+    display: flex;
+    flex-direction: column;
+    height: 300px; 
+}
+.table-header, .table-body {
+    display: flex;
+    flex-direction: column;
+}
+.table-body {
+    overflow-y: scroll; 
+    flex: 1;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.table-container th, td {
+    width: 100px; 
+    border: 1px solid #000;
+    text-align: left;
+    padding: 8px;
+} */
+/* table, tr td {
+    border: 1px solid red
+}
+tbody {
+    display: block;
+    height: 200px;
+    overflow: auto;
+}
+thead, tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+  
+}
+thead {
+    width: calc( 100% - 1em )
+  
+}
+table {
+    width: 400px;
+} */
+/* .scrollit {
+    overflow:scroll;
+    height:100px;
+} */
+
+
+.tablediv {
+    /* padding:20px; */
+  }
+  .tablediv  table ,.tablediv tr td{
+      /* border:1px solid red */
+  }
+  .tablediv  tbody {
+      display:block;
+      height:200px;
+      overflow-y:auto;
+  }
+  .tablediv thead,.tablediv tbody tr {
+      display:table;
+      width:100%;
+      table-layout:fixed;/* even columns width , fix width of table too*/
+  }
+  .tablediv  thead {
+      width: calc( 97% - -1.6rem );
+      /* scrollbar is average 1em/16px width, remove it from thead width */
+  }
+  .tablediv  tbody{
+    width: calc( 97% - -2.19rem );
+    padding-right: 4px;
+    /* width: calc( 100% - -1.3rem ); */
+
+  }
+  .tablediv{
+    height: 234px;
+  }
+  .tablediv table {
+      /* width:400px; */
+      margin-bottom: 0px;
+  }
+  .tablediv1 thead th:last-child{
+    width: 98px;
+  }
+  .tablediv1 thead th{
+    width: 324px;
+  }
+  
+  .tablediv tbody{
+    overflow-x: scroll;
+}
+ .tablediv tbody::-webkit-scrollbar {
+    width: 6px;
+  }
+  .tablediv tbody::-webkit-scrollbar-track {
+    border-radius: 10px;
+  }
+ .tablediv tbody::-webkit-scrollbar-thumb {
+    background: #D0D0CE;
+    border-radius: 10px;
+  }
+ .codegreen{
+    color: #2DB81F;
+ }
+ .codered{
+    color: #B81F2D;
+ }
+ .table-responsive{
+    overflow: inherit !important;
+ }
+
+ @media (max-width:320px) {
+    .notesec{
+        margin-left: 0px;
+        width: 300px;
+    }
+ }
+ @media (max-width:520px) {
+    .notesec{
+        margin-left: 0px;
+        width: 340px;
+        margin-top: 10px;
+    }
+    .modal-dialog{
+        margin: 10px;
+    }
+    .searchtextspan{
+        width: 90% !important;
+    }
+    .table-responsive{
+        overflow: scroll !important;
+     }
+ }

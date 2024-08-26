@@ -1,0 +1,33 @@
+<div class="pagination-wrap pr-0" *ngIf="entireDataList.length>itemsPerPage">
+  <ul class="pagination d-flex align-items-center">
+    <!-- <div> -->
+    <li class="me-auto pr-1 resultsInfoText">
+      Showing <span class="pageNoDetail">
+        {{pageDataList.length}}
+      </span> of <span class="pageNoDetail">{{entireDataList.length}}</span> results
+    </li>
+  <!-- </div> -->
+  <!-- <div class="d-flex align-items-center"> -->
+    <li style="padding-left: 3px;">
+      Page
+    </li>
+    <li (click)="selectPage(pageNumber - 1)" [class.disabled]="pageNumber == 1">
+      <button title="Go to previous page" class="btndataArrow prev-arrow" [disabled]="pageNumber == 1"></button>
+    </li>
+    <li>
+      <input type="number" id="txtpageno" maxlength="4" oncut="return false" oncopy="return false"
+        onpaste="return false" min="0" (input)="validatePageNumber()" (keypress)="checkForEnterKey($event)"
+        onkeydown="if(event.key==='.' || event.key==='e' || event.key==='E' || event.key==='+' || event.key==='-' || event.key==='='){event.preventDefault();}"
+        [(ngModel)]="enteredNumber">
+    </li>
+    <li (click)="selectPage(pageNumber + 1)" [class.disabled]="pageNumber == totalPages">
+      <button href="" title="Go to next page" class="btndataArrow next-arrow"></button>
+    </li>
+    <li>
+      <div class="total-pages m-0 pl-1"> of <span class="pages-value">{{totalPages}}</span></div>
+    </li>
+    <!-- </div> -->
+  </ul>
+</div>
+<div style="color: #B81F2D;" class="float-end"
+*ngIf="enteredNumber == 0 || enteredNumber>totalPages">Page Not Found </div>

@@ -1,0 +1,205 @@
+<div class="main">
+    <header class="header">
+      <nav aria-labelledby="mainMenu">
+        <div class="hamburger-menu" [ngClass] ="{'active': isHamburgerClicked}">
+            <span id="mainMenu" class="hamburger-icon" (click)="showMenu($event)" tabindex="0"></span>
+            <ul id="nav" class="level1">
+                <li *ngFor="let item of menuData; let i = index" class="menuItem {{item.id}}" [class.active]="selectedIndex === i" [class.expand]="item.subMenu && item.subMenu.length>0" (mouseenter)="showSubmenuOnHover($event,'level2',i, item.subMenu);$event.stopPropagation();" (mouseleave)="hideSubmenuOnHover('level2')" (click)="showSubmenu($event,'level2',i, item.subMenu);$event.stopPropagation();">
+                  <span class="menuTitle subMenuPadding">{{item.title}}</span>
+                  <ul *ngIf="item.subMenu" class="level2">
+                    <li *ngFor="let subItem of item.subMenu; let j = index" class="menuItem" [class.active]="selectedSubIndex === j && subItem.subMenu" [class.expand]="subItem.subMenu.length>0" (mouseenter)="showSubmenuOnHover($event,'level3',j, subItem.subMenu);$event.stopPropagation();" (mouseleave)="hideSubmenuOnHover('level3')" (click)="showSubmenu($event,'level3',j, subItem.subMenu);NavigateToComponent(subItem.route, $event);$event.stopPropagation()">
+                      <span class="subMenuTitle" *ngIf="subItem.link && subItem.isSameTab"><a href="{{subItem.link}}" rel="noopener noreferrer" target="_self">{{subItem.title}}</a></span>
+                      <span class="subMenuTitle" *ngIf="subItem.link && !subItem.isSameTab"><a href="{{subItem.link}}" rel="noopener noreferrer" target="_blank">{{subItem.title}}</a></span>
+                      <span class="subMenuTitle subMenuPadding" *ngIf="!subItem.link" >{{subItem.title}}</span>
+                      <!-- id="overlay" (click)="callDummy(subItem.title)" -->
+                      <ul *ngIf="subItem.subMenu && subItem.subMenu.length>0" class="level3">
+                        <li *ngFor="let subItem2 of subItem.subMenu" class="menuItem" (click)="showSubmenu($event,'level4',i, subItem2.subMenu);NavigateToComponent(subItem2.route,subItem2.page);$event.stopPropagation()">
+                          <span class="subMenuTitle" *ngIf="subItem2.link && subItem2.isSameTab"><a href="{{subItem2.link}}" rel="noopener noreferrer" target="_self">{{subItem2.title}}</a></span>
+                          <span class="subMenuTitle" *ngIf="subItem2.link && !subItem2.isSameTab"><a href="{{subItem2.link}}" rel="noopener noreferrer" target="_blank">{{subItem2.title}}</a></span>
+                          <span class="subMenuTitle subMenuPadding" *ngIf="!subItem2.link">{{subItem2.title}}</span>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>            </li>
+            </ul>
+        </div>
+    </nav> 
+        <!-- header logo -->
+        <div class="logo">
+          <img src="assets/logo.png" (click)="addBreadcrum('Home', '/dashboard','','');LoadDashBoard()" alt="My Learning Studio Logo">
+          <a href="javascript:void(0)" class="headerText_24 logoLink" style="font-family: var(--font-semiBold) !important;" (click)="addBreadcrum('Home', '/dashboard','','');LoadDashBoard()" aria-label="Click to visit home page">MY LEARNING STUDIO</a>
+        </div>
+        <!-- header live search -->
+    <!--     <div class="input-group col-md-6 col-sm-12 livesearch">       
+          <form [formGroup]="searchForm" class="searchForm">
+            <div class="allDropDiv border-right-0 allDrop">
+              <select>
+                <option>All</option>
+                <option>Training</option>
+                <option>Events</option>
+                <option>Hands on Practice</option>
+                <option>Assesments</option>
+                <option>Videos</option>
+                <option>Books & Journals</option>
+                <option>Resources</option>
+                <option>Podcasts</option>
+              </select>
+            </div>
+            <input formControlName="search" [(ngModel)]="searchedValue" (focus)="showPopularData($event)" (keyup)=showSearchData($event)  class=" blueborder searchInput border-right-0" type="text" placeholder="What are you looking for?​" aria-label="Search">
+            <div class="search" (click)=search() [routerLink]="['/searchResult']" [queryParams] = "searchData">
+              <span class="blueborder border-left-0 searchbtn" id="basic-text1">
+              </span>
+            </div>
+            <div *ngIf="showsearch" class="showww">
+              <div class="listedsearch">
+                <div class="searchCat" *ngIf="showSearchResult">
+                  <ul *ngFor= "let category of CategoryData; let i = index;">
+                    <h2>{{category.categoryName}}</h2>
+                    <li class="catTopics" *ngIf='i == 0' (click)=search() [routerLink]="['/searchResult']" [queryParams] = "searchData">
+                        <span>
+                          <img src="{{category.categoryIcon}}">
+                          <span class="catsTitle">{{searchedValue}}</span>
+                        </span>
+                    </li>
+                    <li  *ngFor= "let topic of category.courseList" (click)=search() class="catTopics" [routerLink]="['/cardDetails']">
+                      <img src="{{category.categoryIcon}}">
+                      <span class="catsTitle">{{topic.courseTitle}}</span><br>
+                      <span  class="catSubtitle" *ngIf ='topic.courseSubtitle'>{{topic.courseSubtitle}}</span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="popularCat" *ngIf="showPopular">
+                  <ul *ngFor= "let category of popularData; let i = index;">
+                    <div>
+                      <h2>{{category.categoryName}}</h2>
+                      <span class="greenText" *ngIf='i == 0'>Clear All</span>
+                    </div>
+                    <li  *ngFor= "let topic of category.courseList" (click)=search() class="catTopics" [routerLink]="['/searchResult']">
+                      <img src="{{category.categoryIcon}}">
+                      <span class="catsTitle">{{topic.courseTitle}}</span><br>
+                      <span  class="catSubtitle" *ngIf ='topic.courseSubtitle'>{{topic.courseSubtitle}}</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div> -->
+        <!-- header icons -->
+        <div class="icons">
+          <div *ngIf="isMLSAccess" class="header-img recommandation" title="Recommended Learning"></div>
+          <a href="javascript:void(0)"  aria-label="Opens a popup of Take a tour" *ngIf="isMLSAccess" class="header-img tour" title="Take a Tour" (click)="tourModeEvent($event)"></a>
+          <a href="javascript:void(0)"  aria-label="Opens WeConnect page" *ngIf="isMLSAccess" class="header-img social" title="WeConnect" (click)="addBreadcrum('Make-an-Impact','collaborate','WeConnect', '/social');" [routerLink]="['/social']"><span *ngIf="Weconnect > 0" class="badge">{{Weconnect}}</span></a>
+          <a class="header-img favorites" href="javascript:void(0)"  aria-label="Opens Favourite page" title="My Favorites​" (click)="addBreadcrum('My Space','profile','My Favorites​', '/favorites');LoadFavoriteData()"><span *ngIf="TotalFavcount > 0" class="badge">{{TotalFavcount}}</span></a>
+          <a class="header-img notification" href="javascript:void(0)"  aria-label="Opens a popup of Notification" aria-expanded="false" (click)="notification()" title="My Notifications" triggers="click" [popoverOnHover]="false" [popoverCloseOnMouseOutside]="true" [popover]="notificationPopover">
+            <span *ngIf="NotificationCount > 0 && isAlertNotifications==1" class="badge">{{NotificationCount}}</span>
+          </a>
+          <!-- <div class="header-img announcement" title="My Announcementss" triggers="click" [popoverOnHover]="false" [popoverCloseOnMouseOutside]="true" [popover]="AnnouncementsPopover"> <span class="badge">10</span></div>
+          <popover-content #AnnouncementsPopover [closeOnMouseOutside]="false" placement="bottom" [animation]="true" [closeOnClickOutside]="true">
+            <div class="announcementWrapper" id="announcementWrapper">
+              <div class="col-md-12 col-sm-12 col-12 announcementPost">
+                <app-shoutout [notificationList]="notificationList" [popupId]="notificationPopover" (closePopup)="AnnouncementsPopover.hide()"></app-shoutout>
+              </div>
+            </div> 
+          </popover-content>  -->
+          <!--<div class="header-img announcement" title="Announcements"></div>-->
+          <a *ngIf="isMLSAccess" href="javascript:void(0)"  aria-label="Opens My Preference page" class="header-img preferences" [ngClass]="{'PreferenceBlinkAccess': !isPreferenceBlinkAccess}" title="My Preferences" (click)="addBreadcrum('My Space','profile','My Preferences', '/preferences');LoadPreferenceData()"></a>
+          <a class="header-img help" href="javascript:void(0)"  aria-label="Opens Help page in a new tab" title="Help" (click)="RedirectHelpPage()"></a>
+          <!-- <div class="profile-icon" >
+            <div class="profile-img"><img src="/assets/profile_pic.png"></div>
+            <img src="/assets/dropdown_new.png" class="dropdown_img pl-2" triggers="click" [popoverOnHover]="false" [popoverCloseOnMouseOutside]="true" [popover]="profileCardPopover">
+          </div>
+          <popover-content #profileCardPopover placement="bottom" [animation]="true" [closeOnClickOutside]="true" [closeOnMouseOutside]="false">
+        <div class="profileCardContainer">
+          <div class="profileInfo">
+                <div class="profilePic"><img src="/assets/profile_pic.png"></div>  
+                <div class="profileDetails">
+                  <div class="profileName">William Federson Robert</div>
+                  <div class="profileRole">Senior Associate - Projects</div>
+                  <div class="profileTeam">CDBDX-DXS- Design-UX</div>
+                </div>
+          </div>
+          <div class="learningDetails">
+        <div class="detail">
+          <div class="activityName">Learning</div>
+          <div class="activityPoints">83 points</div>
+        </div>
+        <div class="detail">
+          <div class="activityName">Contribution</div>
+          <div class="activityPoints">22 points</div>
+        </div>
+        <div class="detail">
+          <div class="activityName">Collabration</div>
+          <div class="activityPoints">18 points</div>
+        </div>
+        <div class="detail profileTypeBlock">
+          <div class="publicProfile" [routerLink]="['/Associate-profile']" [queryParams] = "{mode:'View', isContributed:'yes'}">Public profile</div>
+          <div class="publicProfile" [routerLink]="['/Associate-profile']"  [queryParams] = "{mode:'View', isContributed:'no'}">View - without contribution</div>
+          <div class="editProfile" [routerLink]="['/Associate-profile']" [queryParams] = "{mode:'Edit', isContributed:'yes'}">Edit profile</div>
+          <div class="editProfile" [routerLink]="['/Associate-profile']"  [queryParams] = "{mode:'Edit', isContributed:'no'}">Edit - without contribution</div>
+        </div>
+        <div class="detail Help">Help</div>
+          </div>
+         
+        </div>
+          </popover-content> -->
+          <popover-content #notificationPopover placement="bottom" [animation]="true" [closeOnClickOutside]="true">
+            <!-- <div aria-expanded="true" class="notifyWrapper" [ngClass]="{'notifyWrapperQuiz': MLSAccess == 0}" id="notifyWrapper" *ngIf="showNotification">
+              <div class="col-md-12 col-sm-12 col-12 notificationPost">
+                <app-notification [notificationList]="notificationList" [popupId]="notificationPopover" (notificationChange)="notificationPopover.hide()" (currTab)="currentTab($event)"></app-notification>
+              </div>
+              <div class="col-md-12 col-sm-12 col-12 notificationFoot">
+                <div class="row">
+                  <div class="col-md-6  col-sm-6 col-6">
+                    <div class="markRead" (click)="allRead($event)">Mark All As Read</div>
+                  </div>
+                  <div class="col-md-6  col-sm-6 col-6 text-right">
+                    <span class="viewAll" (click)="notificationPopover.hide()" [routerLink]="['/viewallNotification']" [queryParams]="{tab: selectedTab}" routerLinkActive="active">View All</span>
+                  </div>
+                </div>
+              </div>
+        
+            </div> -->
+          </popover-content>
+        </div>
+    </header>
+
+    <!-- <div class="modal" id="settings" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header setHead">
+            <h4 class="modal-title">Edit Notification Settings</h4>
+            <button type="button" class="close" data-dismiss="modal"><img src="/assets/close_white_popup.png" alt=""></button>
+          </div>
+          <div class="modal-body setBody">
+            <div class="setBlocks"  *ngFor = "let setdata of settings, let i= index;">
+              <div class="setTopics">
+                <img src="assets/{{setdata.img}}.png" id={{setdata.img}}><span>{{setdata.topic}}</span>
+              </div>
+              <div class="setTopicBlock">
+                <div class="toggleWrap"  *ngFor = "let subdata of setdata.subtopic">
+                  <div class="setTog">
+                    <div class="setText">{{subdata.text}}</div>
+                    <div class="togBtn">
+                      <span *ngIf="!subdata.inputCheck">Off</span>
+                      <span *ngIf="subdata.inputCheck">On</span>
+                      <label class="switch">
+                        <input type="checkbox" (change)="subdata.inputCheck = !subdata.inputCheck" checked="{{subdata.isChecked}}">
+                        <span class="slider round"></span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    </div>
+   
+  
+    <!-- <div *ngIf="dummy">
+      <app-popup [openModal]="isOpen" (closeModal)="closeChild($event)"></app-popup>
+    </div> -->
+    

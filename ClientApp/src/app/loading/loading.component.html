@@ -1,0 +1,13 @@
+<div class="loading-container" *ngIf="showLoadingIndicator">
+	<div class="Loading-Wrapper">
+		<div>
+			<img src="/assets/loading.gif" (load)="imageLoad()">
+		</div>
+		<div *ngIf="isLoaded">
+			<ng-container *ngFor="let textSplit of loadingTextArray[loadingDispTextIndex].split('|')">
+				<div class="loadingText">{{textSplit}}</div>
+			</ng-container>
+			</div>
+		<!-- <span class="loadingText headerText_24">Loading...</span> -->
+	</div>
+</div>

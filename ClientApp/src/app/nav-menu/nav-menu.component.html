@@ -1,0 +1,101 @@
+<div class="nav-menu-wrap">
+    <div class="navContainer">
+      <div class="breadcrum" [ngClass]="{'invisible':isSearch}">
+        <span *ngIf="primaryPage == 'Home'" class="home-icon" (click)="clearSecondaryLink()">
+        </span>
+        <span class="primary-icon {{primaryPagename}}" *ngIf="primaryPage != 'Home'">
+        </span>
+        <div class="page-list breadcrumName {{primaryPage}}">
+          <a class="page-name dropend"
+          data-bs-toggle="dropdown" aria-expanded="false" 
+            (click)="primaryNav($event,nav1Popover);$event.stopPropagation()">{{primaryPage}}</a>
+            <ul class="dropdown-menu link-list level2" #MenuListId>
+                <li *ngFor="let category of commonMenuList; let i = index;" class="drpdown-latest">
+                  <span class="subMenuLinkTitle" *ngIf="category.link && category.isSameTab" (click)="HideNavPopOver(nav1Popover)"><a href="{{category.link}}" rel="noopener noreferrer" target="_self">{{category.title}}</a></span>
+                  <span class="subMenuLinkTitle" *ngIf="category.link && !category.isSameTab" (click)="HideNavPopOver(nav1Popover)"><a href="{{category.link}}" rel="noopener noreferrer" target="_blank">{{category.title}}</a></span>
+                  <span class="subMenuTitle" *ngIf="category.route && category.route!=''" (click)="NavigateToComponent(category.route,nav1Popover)">{{category.title}}</span>
+                  <span class="subMenuTitle childMenuPopOver" *ngIf="!category.link && (!category.route || category.route=='')" 
+                  data-bs-toggle="dropdown" aria-expanded="false"  (click)="OpenSubMenu($event);$event.stopPropagation()">{{category.title}}</span>
+                  <!-- <popover-content #skill1Popover [closeOnMouseOutside]="false" placement="right" [animation]="true" [closeOnClickOutside]="true"> -->
+                    <ul class="dropdown-menu link-list subMenu-list level3" >
+                      <li *ngFor="let subMenu of category.subMenu" class="drpdown-latest" (click)="SelectChildPopOver($event,skill1Popover,nav1Popover)">
+                        <span class="subMenuLinkTitle" *ngIf="subMenu.link && subMenu.isSameTab"><a href="{{subMenu.link}}" rel="noopener noreferrer" target="_self">{{subMenu.title}}</a></span>
+                        <span class="subMenuLinkTitle" *ngIf="subMenu.link && !subMenu.isSameTab"><a href="{{subMenu.link}}" rel="noopener noreferrer" target="_blank">{{subMenu.title}}</a></span>
+                        <span class="subMenuTitle" *ngIf="subMenu.route!=''" (click)="NavigateToComponent(subMenu.route,nav1Popover)">{{subMenu.title}}</span>
+                      </li>
+                    </ul>
+                  <!-- </popover-content> -->
+                </li>
+              </ul>
+        </div>
+        <div  *ngIf="secondaryPage" class="navIcon" [ngClass]="{'active': isPrimaryNav}" >/</div>
+        <!-- <popover-content #nav1Popover [closeOnMouseOutside]="false" placement="bottom" [animation]="true" [closeOnClickOutside]="true"> -->
+          <!-- <ul class="link-list level2" #MenuListId>
+            <li *ngFor="let category of commonMenuList; let i = index;" class="drpdown-latest">
+              <span class="subMenuLinkTitle" *ngIf="category.link && category.isSameTab" (click)="HideNavPopOver(nav1Popover)"><a href="{{category.link}}" rel="noopener noreferrer" target="_self">{{category.title}}</a></span>
+              <span class="subMenuLinkTitle" *ngIf="category.link && !category.isSameTab" (click)="HideNavPopOver(nav1Popover)"><a href="{{category.link}}" rel="noopener noreferrer" target="_blank">{{category.title}}</a></span>
+              <span class="subMenuTitle" *ngIf="category.route && category.route!=''" (click)="NavigateToComponent(category.route,nav1Popover)">{{category.title}}</span>
+              <span class="subMenuTitle childMenuPopOver" *ngIf="!category.link && (!category.route || category.route=='')" 
+              data-bs-toggle="dropdown" aria-expanded="false" (click)="OpenSubMenu($event)">{{category.title}}</span>
+              <popover-content #skill1Popover [closeOnMouseOutside]="false" placement="right" [animation]="true" [closeOnClickOutside]="true">
+                <ul class="link-list subMenu-list level3">
+                  <li *ngFor="let subMenu of category.subMenu" class="drpdown-latest" (click)="SelectChildPopOver($event,skill1Popover,nav1Popover)">
+                    <span class="subMenuLinkTitle" *ngIf="subMenu.link && subMenu.isSameTab"><a href="{{subMenu.link}}" rel="noopener noreferrer" target="_self">{{subMenu.title}}</a></span>
+                    <span class="subMenuLinkTitle" *ngIf="subMenu.link && !subMenu.isSameTab"><a href="{{subMenu.link}}" rel="noopener noreferrer" target="_blank">{{subMenu.title}}</a></span>
+                    <span class="subMenuTitle" *ngIf="subMenu.route!=''" (click)="NavigateToComponent(subMenu.route,nav1Popover)">{{subMenu.title}}</span>
+                  </li>
+                </ul>
+              </popover-content>
+            </li>
+          </ul> -->
+        <!-- </popover-content> -->
+        <!--<popover-content #nav1Popover placement="auto" [animation]="true" [closeOnClickOutside]="true">
+  
+          <ul class="link-list level2">
+  
+            <li *ngFor="let menu of dropdownNavMenu" class="drpdown-latest" [routerLink]="[menu.route]" (click)="nav1Popover.hide();" [queryParams]="{page:menu.page}">{{menu.title}}</li>
+  
+          </ul>
+  
+        </popover-content>-->
+        <div *ngIf="secondaryPage" class="page-list breadcrumName dummy">
+          <a class="page-name" *ngIf="secondaryPage"
+          data-bs-toggle="dropdown" aria-expanded="false" (click)="secondaryNavElements($event,tertiaryLinkPopover)">{{secondaryPage}}</a>
+          <ul class="dropdown-menu link-list subMenu-list level3" [ngClass]="secMenuList && secMenuList.length==0 ? 'd-none' : 'show'">
+            <li *ngFor="let subMenu of secMenuList" class="drpdown-latest" (click)="tertiaryLinkPopover.hide()">
+              <span class="subMenuLinkTitle" *ngIf="subMenu.link && subMenu.isSameTab"><a href="{{subMenu.link}}" rel="noopener noreferrer" target="_self">{{subMenu.title}}</a></span>
+              <span class="subMenuLinkTitle" *ngIf="subMenu.link && !subMenu.isSameTab"><a href="{{subMenu.link}}" rel="noopener noreferrer" target="_blank">{{subMenu.title}}</a></span>
+              <span class="subMenuTitle" *ngIf="!subMenu.link && (subMenu.route && subMenu.route!='')" (click)="NavigateToComponent(subMenu.route,tertiaryLinkPopover)">{{subMenu.title}}</span>
+            </li> 
+          </ul>
+        </div>
+        <!-- <popover-content #tertiaryLinkPopover [closeOnMouseOutside]="false" placement="bottom" [animation]="true" [closeOnClickOutside]="true">
+          <ul class="link-list subMenu-list level3">
+            <li *ngFor="let subMenu of secMenuList" class="drpdown-latest" (click)="tertiaryLinkPopover.hide()">
+              <span class="subMenuLinkTitle" *ngIf="subMenu.link && subMenu.isSameTab"><a href="{{subMenu.link}}" rel="noopener noreferrer" target="_self">{{subMenu.title}}</a></span>
+              <span class="subMenuLinkTitle" *ngIf="subMenu.link && !subMenu.isSameTab"><a href="{{subMenu.link}}" rel="noopener noreferrer" target="_blank">{{subMenu.title}}</a></span>
+              <span class="subMenuTitle" *ngIf="!subMenu.link && (subMenu.route && subMenu.route!='')" (click)="NavigateToComponent(subMenu.route,tertiaryLinkPopover)">{{subMenu.title}}</span>
+            </li>
+          </ul>
+        </popover-content> -->
+        <div *ngIf="tertiaryPage" class="navIcon" [ngClass]="{'active': isSecondaryNav}">/</div>
+        <popover-content #navPopover placement="auto" [animation]="true" [closeOnClickOutside]="true" *ngIf="tertiaryPage">
+          <ul class="link-list level3">
+            <li class="drpdown-latest" (click)="navPopover.hide();selectSort($event,'All',navPopover)">All Learning</li>
+            <li class="drpdown-latest" (click)="navPopover.hide();selectSort($event,'Trainings',navPopover)">Trainings</li>
+            <li class="drpdown-latest" (click)="navPopover.hide();selectSort($event,'Books & Journals',navPopover)">Books & Journals</li>
+            <li class="drpdown-latest" (click)="navPopover.hide();selectSort($event,'Videos',navPopover)">Videos</li>
+            <li class="drpdown-latest" (click)="navPopover.hide();selectSort($event,'Podcasts',navPopover)">Podcasts</li>
+            <li class="drpdown-latest" (click)="navPopover.hide();selectSort($event,'Events',navPopover)">Events</li>
+            <li class="drpdown-latest" (click)="navPopover.hide();selectSort($event,'Hands on Practice',navPopover)">Hands on Practice</li>
+            <li class="drpdown-latest" (click)="navPopover.hide();selectSort($event,'Assessments',navPopover)">Assessments</li>
+            <li class="drpdown-latest" (click)="navPopover.hide();selectSort($event,'Resources',navPopover)">Resources</li>
+            <li class="drpdown-latest" (click)="navPopover.hide();selectSort($event,'Articles',navPopover)">Articles</li>
+          </ul>
+        </popover-content>
+        <div *ngIf="tertiaryPage" class="page-list breadcrumName">
+          <a class="page-name" *ngIf="tertiaryPage"> {{tertiaryPage}}</a>
+        </div>
+      </div>
+      </div>
+      </div>

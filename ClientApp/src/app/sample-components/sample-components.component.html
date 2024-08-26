@@ -1,0 +1,133 @@
+<div class="container">
+    <ng-scrollbar style="height: 100vh;" class="custom-scrollbar" #scrollbar>
+        <div class="container mt-5" style="overflow: hidden;">
+            <div class="mb-5">
+                <b class="mb-3">Quill editor:</b>
+                <quill-editor [modules]="editorModules" [(ngModel)]="editorContent"
+                    [style]="{height: '200px', width: '60%'}"></quill-editor>
+                <p [innerHTML]="editorContent"></p>
+            </div>
+            <hr />
+
+            <div>
+                <accordion>
+                    <panel panelHeader="Panel 1">
+                        <div>Panel 1 content</div>
+                    </panel>
+                    <panel panelHeader="Panel 2">
+                        <div>Panel 2 content</div>
+                    </panel>
+                </accordion>
+            </div>
+            <p style="visibility: hidden;">&nbsp;</p>
+            <hr />
+
+            <div class="mt-5">
+                <div>Date Picker</div>
+                <input class="input-box input-dp textboxStyle" type="text" placeholder="Select a date" id="mydate2"
+                    angular-mydatepicker name="mydate2" (click)="dp2.toggleCalendar()" [options]="myDpOptions"
+                    #dp2="angular-mydatepicker" autocomplete="off" />
+            </div>
+            <hr />
+
+            <div style="display: block;">
+                <canvas baseChart [data]="donutChartData" [type]="donutChartType" [options]="donutChartOptions">
+                </canvas>
+            </div>
+
+            <div *ngFor="let tab of tabs">{{ tab }}</div>
+        </div>
+
+        <button (click)="openModal()">Open Modal</button>
+    </ng-scrollbar>
+
+    <!-- Modal -->
+    <div *ngIf="isModalOpen" class="modal">
+
+        <div class="modal-content" style="overflow: hidden; height:200px">
+            <ng-scrollbar class="custom-scrollbar">
+                <span class="close" (click)="closeModal()">&times;</span>
+                <p>Modal Content</p>
+                <p>Modal Content</p>
+                <p>Modal Content</p>
+                <p>Modal Content</p>
+                <p>Modal Content</p>
+                <p>Modal Content</p>
+                <p>Modal Content</p>
+                <p>Modal Content</p>
+                <p>Modal Content</p>
+                <p>Modal Content</p>
+                <p>Modal Content</p>
+                <p>Modal Content</p>
+                <p>Modal Content</p>
+                <p>Modal Content</p>
+                <p>Modal Content</p>
+                <p>Modal Content</p>
+                <p>Modal Content</p>
+                <p>Modal Content</p>
+                <p>Modal Content</p>
+                <p>Modal Content</p>
+                <p>Modal Content</p>
+                <p>Modal Content</p>
+                <p>Modal Content</p>
+                <p>Modal Content</p>
+                <p>Modal Content</p>
+                <p>Modal Content</p>
+                <p>Modal Content</p>
+                <p>Modal Content</p>
+                <p>Modal Content</p>
+                <p>Modal Content</p>
+            </ng-scrollbar>
+        </div>
+    </div>
+</div>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scrollable Table Body</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        thead, tbody {
+            display: block;
+        }
+        tbody {
+            height: 200px; /* Set the height you want for the scrollable area */
+            overflow-y: auto; /* Enable vertical scrolling */
+        }
+        th, td {
+            width: 100px; /* Set a fixed width for columns */
+            border: 1px solid #000;
+            text-align: left;
+            padding: 8px;
+        }
+        thead th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Header 1</th>
+                <th>Header 2</th>
+                <th>Header 3</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Row 1, Cell 1</td>
+                <td>Row 1, Cell 2</td>
+                <td>Row 1, Cell 3</td>
+            </tr>
+            <!-- Add more rows as needed -->
+        </tbody>
+    </table>
+</body>
+</html>

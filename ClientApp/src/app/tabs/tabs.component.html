@@ -1,0 +1,11 @@
+<div class="nav-wrapper">
+  <ul class="nav nav-pills nav-fill nomobile" [ngClass]="{'w-100': totalTabToShow != undefined}">
+    <li class="nav-item" *ngFor="let tab of tabs.toArray() | slice : 0 : totalTabToShow; let i=index"
+      (click)="selectTab(tab)" title="{{tab.hoverText}}">
+      <a class="nav-link" [class.active]="tab.active" [class.error]="tab.isError">{{tab.title}}
+        <img src="/1738/MLSApp/assets/asterik_image.png" alt="" class="asterikimage" *ngIf="tab.isshowstar">
+      </a>
+    </li>
+  </ul>
+</div>
+<ng-content></ng-content>

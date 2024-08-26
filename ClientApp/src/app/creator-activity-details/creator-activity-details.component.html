@@ -1,0 +1,58 @@
+<div class="componentMargin">
+    <tabs>
+        <!-- Certification Tab -->
+        <tab #externalCertification tabTitle="Certification">
+            <p style="visibility: hidden;">&nbsp;</p>
+
+            <div class="alignNewReq">
+                <div>
+                    <img src="/assets/filter_blue_new.svg" alt="Filter icon">
+                    <span class="blueText14">Filter Criteria</span>
+                </div>
+                <button class="btn-primary">New Request</button>
+            </div>
+
+            <table class="task-table table tableStyle mt-3">
+                <thead>
+                    <tr>
+                        <th>Activity Code</th>
+                        <th>Activity Name</th>
+                        <th>Request Date</th>
+                        <th>Approve Date</th>
+                        <th>Status</th>
+                        <th class="actions">Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let activity of currentTotalActivities">
+                        <td>{{activity.activityCode}}</td>
+                        <td>{{activity.activityName}}</td>
+                        <td>{{activity.requestDate}}</td>
+                        <td>{{activity.approveDate}}</td>
+                        <td>
+                            <div class="dotsAlign">
+                                <p class="yellowDot" *ngIf="activity.status === 'Pending with Academy'"></p>
+                                <p class="redDot" *ngIf="activity.status === 'Rejected'"></p>
+                                <p class="greenDot" *ngIf="activity.status === 'Completed'"></p>
+                                <p>{{activity.status}}</p>
+                            </div>
+                        </td>
+                        <td class="actions">
+                            <img src="/assets/external_cert_eye_icon.svg" width="20px" height="14px"
+                                *ngIf="activity.status === 'Pending with Academy' || activity.status === 'Completed'" />
+                            <img src="/assets/external_cert_edit_icon.svg" width="20px" height="14px"
+                                *ngIf="activity.status === 'Rejected'" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <app-pagination-ui [entireDataList]="totalActivities" (pageChanges)="paginationTotalActivities($event)"
+                [itemsPerPage]="3"></app-pagination-ui>
+        </tab>
+
+        <!-- Training Tab -->
+        <tab #externalCertification tabTitle="Training">
+        </tab>
+    </tabs>
+</div>

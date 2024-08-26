@@ -1,0 +1,172 @@
+
+<div class="container merit-mapperContainer">
+  
+
+  <div class="content-box" id="div_main">
+    <div class="title">
+      <label>My Assessment / Attempts</label>
+      <div class="headsec float-start d-grid d-lg-flex">
+      <div class="search-field searchtextspan col-xs-12 col-lg-6 px-0">
+        <input type="text" class="form-control searchText col-12" 
+        [(ngModel)]="search" (keyup)="filterReports($event)"
+          placeholder="Search Course code / Course name">
+        <button id="btnSearch1" *ngIf="search.length==0" class="searchBarInEdit" type="submit"></button>
+        <button id="btnSearch1" *ngIf="search.length>0" (click)="search='';closesearch()" class="crossmark" type="submit"></button>
+
+      </div>
+      <div class="notesec col-11">{{pointToBeNoted}}</div>
+    </div>
+
+    </div>
+
+    <div style="clear: both !important;">
+      <!-- <div class="notesec"><u>Note:</u> {{pointToBeNoted}}</div> -->
+      <div class="reportList">
+        <!-- [ngClass]="CurrentPageData.length<4?'tablediv':''" -->
+        <!-- <div  class="tablediv1" [ngClass]="CurrentPageData.length<4?'tablediv':''"> -->
+<div class="table-responsive">
+          <table class="tableStyle table table-bordered main-table"> 
+  <thead>
+    <tr>
+      <th class="activity-header">&nbsp;</th>
+      <th class="activity-header">Course/Activity Name</th>
+      <th class="activity-header">Course/Activity Code</th>
+    </tr>
+  </thead>
+  <tbody> 
+  <ng-container *ngFor="let course of CurrentPageData ;let ind=
+  index" > 
+  <tr class="activity-header-body" *ngIf="CurrentPageData.length>0">
+    <td>
+      <span class="acc-arr first" (click)="course.isToggle=
+        !course.isToggle;emitCourseIndex(ind)">
+        <img *ngIf="course.isToggle == false" src="/assets/downarrow-blue.png">
+        <img *ngIf="course.isToggle == true" src="/assets/uparrow-blue.png">
+      </span>
+
+    </td>
+    <td>
+       <div class="middle" title="{{course.courseName}}">{{course.courseName}}</div>
+    </td>
+    <td><div class="last" title="{{course.courseID}}">{{course.courseID}}</div></td>
+  </tr>
+  <tr *ngIf="CurrentPageData.length==0 || courseArr.length==0">
+   <td colspan="3">{{nodata}}</td>
+  </tr>
+  <tr *ngIf="course.isToggle">
+    <td colspan="3" class="colSpan3">
+      <div class="pb-3 bold">List of Attempts</div>
+
+      
+        <table class="nested-table table table-bordered">
+          <thead>
+            <tr>
+              <th>Attempt Number</th>
+              <th>Date of Enrollment</th>
+              <th>Date of Completion</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let attempt of course.attempts;let
+            i=index">
+              <td>
+                <span>Attempt {{attempt.no}}</span>
+              </td>
+              <td><span class="dates">
+                  {{attempt.DOE}}</span>
+              </td>
+              <td><span class="dates">
+                  {{attempt.DOC}}</span></td>
+              <td>
+                <span class="codegreen" *ngIf="attempt.score>=70">Pass</span>
+                <span class="codered" *ngIf="attempt.score<70">Fail</span>
+              </td>
+              <td><span class="popupView">
+                <span *ngIf="course.isView" class="linkText_blue14 pe-4" (click)="viewTopicDetails(course.courseID,
+                course.courseName,course.overallscore,course.attempts,i)">
+                <img src="/assets/viewreport.png" class="pe-2">View Report</span>
+                <span *ngIf="course.isdownload" class="linkText_blue14">
+                <img src="/assets/downloadreport.png" class="pe-2">Download Report</span>
+                        </span></td>
+            </tr>
+          </tbody>
+        </table>
+        
+
+
+    </td>
+  </tr>
+  </ng-container> 
+
+  </tbody>
+  </table> 
+</div>
+  <!-- </div> -->
+    
+        <app-pagination-ui [entireDataList]="courseArrCopy" (pageChanges)="paginationResultUpdated($event)" [itemsPerPage]="10">
+        </app-pagination-ui>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<app-modal #topicDetailPopup class="nofooter modal-lg topicDetailPopup"
+  data-backdrop="static" data-keyboard="false">
+  <div class="app-modal-header app-modal-header-td">
+    <div class="modal-head app-modal-head" style="font-size: 18px;" title="{{activityCode}}">
+      Topicwise score for {{activityCode}}
+    </div>
+    <div class="modal-head-right app-modal-close"
+    (click)="topicDetailPopup.hide();Appcomponent.ReinitScrollBar(true);">
+      <!-- <img class="d-none" src="/assets/close_white_popup.png" alt=""> -->
+    </div>
+
+  </div>
+  <div class="app-modal-body customScroller1" style="max-height: 400px;">
+    <div class="details pb-2">
+      <div title="{{activityCode}}" class="boldcls"><span>Course/Activity Code</span><span>:</span> {{activityCode}}</div>
+      <div title="{{activityName}}" class="boldcls"><span class="bold boldcls">Course/Activity Name</span><span>:</span> {{activityName}}</div>
+      <div title="{{DateOfCompletion}}" class="boldcls"><span class="bold boldcls">Date of Completion</span><span>:</span> {{DateOfCompletion}}</div>
+      <div title="{{overallScore}}" class="boldcls"><span class="bold boldcls">Overall Score</span><span>:</span> {{overallScore}}</div>
+
+    </div>
+    <!-- <div class="table-container"> -->
+      <div  class="tablediv1 table-responsive" [ngClass]="dummyArr.length>4?'tablediv':''">
+      <table class="table table-bordered tableStyle">
+        <thead>
+          <tr>
+            <th>Topic Name</th>
+            <th>Topic Description</th>
+            <th>Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="activityRow" *ngFor="let topic of
+            dummyArr;let
+            attInd= index">
+            <td title="{{topic.name}}">{{topic.name}}</td>
+            <td title="{{topic.desc}}">{{topic.desc}}</td>
+            <td title="{{topic.score}}">{{topic.score}}</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    <!-- </div> -->
+
+
+  </div>
+</app-modal>
+
+
+
+
+
+
+
+ 
+

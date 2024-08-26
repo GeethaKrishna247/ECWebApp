@@ -1,0 +1,31 @@
+<div class="header" [ngClass]="{active: show , disabled : Isdisabled}" (click)="toggle()">
+  <span *ngIf="!show && showDandD" class="leftdivForDrag" [ngClass]="{disableIcon:setsequential}"></span>
+  <span class="textColor"> <img *ngIf="fromTeamSkills" src="/assets/{{imgSrcFromTeamSkills}}" class="imgSrc pr-2" />{{ panelHeader}} </span>
+  <span class="textColor TextAlign" *ngIf="showMandatory">Mandatory </span>
+
+  <span *ngIf="errorText" class="errorTxtBlock ml-1">
+    <span class="divider ml-2"></span>
+    <img class="mr-0 ml-2" src="/assets/error_indicator.png">
+    <span class="errorTxt">{{errorText}}</span>
+  </span>
+  <img src="/assets/{{imgSrc}}" class="imgSrc" *ngIf="imgSrc.length>0" />
+  <div class="isLocked" *ngIf="isLocked"></div>
+  <div class="isCompleted" *ngIf="isCompleted"></div>
+
+  <!-- <span class="completedSpan" *ngIf="isCompletedVisible">{{completionHeader}}</span> -->
+  <div class="cmpltnsts" *ngIf="isCompletedVisible">
+    <span class="completedSpan">{{completionHeader}}</span>
+  
+    <div class="progressBar">
+      <div class="progress" [ngStyle]="{width: ((numerator/denominator)*100)+'%'}"></div>
+    </div>
+  </div>
+  
+
+</div>
+
+<div class="content" [ngClass]="{show: show}">
+  <ng-content></ng-content>
+</div>
+
+

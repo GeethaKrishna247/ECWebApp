@@ -1,0 +1,215 @@
+.header {
+  border: 1px solid #2F78C4;
+  padding: 16px;
+  background: #FFFFFF url(src/assets/panel.svg)98% no-repeat;
+  color: #2F78C4;
+  font-size: 16px;
+  float: left;
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-bottom:4px;
+}
+
+  .header.active, .header.active:active, .header.active:hover, .header.active:focus {
+    background: #2F78C4 url(src/assets/panelviewed.svg)98% no-repeat;
+    color: #FFFFFF;
+    border: none;
+    margin-bottom: 0;
+  }
+  .header:hover, .header:focus {
+    background: #2F78C4 url(src/assets/panelhovered.svg)98% no-repeat;
+  }
+
+  .header.disabled {
+    opacity: 0.3;
+    pointer-events: none;
+  }
+
+.content {
+  border: 1px solid #2F78C4;
+  display: none;
+  padding: 24px 16px;
+  float: left;
+  background: #FFF;
+  width: 100%;
+  margin-bottom:4px;
+}
+
+  .content.show {
+    display: block;
+  }
+
+.header .info {
+  background: url(/1738/MLSApp/assets/info_blue.png);
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  position: relative;
+  top: 3px;
+  left: 10px;
+}
+
+.header.active .info {
+  background: url(/1738/MLSApp/assets/info-white-desktop.png);
+}
+
+.active .textColor, .header:hover .textColor, .header:focus .textColor{
+  color: #FFFFFF !important;
+  font-family: 'Cognizant-Sans-Bold';
+}
+
+.textColor {
+  color: #2F78C4 !important;
+}
+
+.completedSpan {
+  float: right;
+  /* margin-right: 100px; */
+  margin-right: 30px;
+
+  color: #2D67FF !important;
+  font-size: 14px;
+}
+
+.active .completedSpan {
+  float: right;
+  /* margin-right: 100px; */
+  margin-right: 30px;
+
+  font-size: 14px;
+  color: #fff !important;
+}
+/** Mobile View CSS **/
+@media only screen and (max-width: 520px) {
+  .content {
+    padding: 15px 5px;
+  }
+
+
+  .header.active, .header.active:hover, .header.active:active, .header.active:focus {
+    background: #2F78C4 url(src/assets/panelhovered.svg) 98% no-repeat;
+  }
+  .completedSpan, .active .completedSpan {
+    padding-top: 5px;
+    float: left !important;
+  }
+}
+
+.leftdivForDrag {
+  background: #EEEEEE url(/1738/MLSApp/assets/drag.png) center no-repeat !important;
+  width: 26px;
+  height: 26px;
+  margin-right: 16px;
+  float: left;
+}
+.TextAlign {
+  float: right;
+  padding-right: 3rem;
+}
+.header .isLocked {
+  background: url(/assets/locked_blue1.png) no-repeat;
+  width: 24px;
+  height: 20px;
+  background-size: contain;
+  display: inline-block;
+  margin-left: 16px;
+  vertical-align: middle;
+}
+
+.header.active .isLocked {
+  background: url(/assets/lock_open.png) no-repeat;
+  width: 24px;
+  height: 20px;
+  background-size: contain;
+}
+
+.header .isCompleted {
+  background: url(/assets/blue-rounded-tick.png) no-repeat;
+  width: 24px;
+  height: 20px;
+  background-size: contain;
+  display: inline-block;
+  margin-left: 16px;
+  vertical-align: middle;
+}
+
+.header.active .isCompleted {
+  background: url(/assets/white-rounded-tick.png) no-repeat;
+  width: 24px;
+  height: 20px;
+  background-size: contain;
+}
+
+.errorTxtBlock{
+  font: normal normal normal 16px/20px Cognizant-Sans;
+  letter-spacing: 0px;
+  color: #DA1E28;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.errorTxtBlock>img{
+  width: 36px;
+  height: 36px;
+}
+.errorTxt{
+  font: normal normal normal 16px/20px Cognizant-Sans;
+  color: #DA1E28;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  min-width: 76px;
+}
+.header.active .errorTxt{
+  color: #FFF;
+}
+.header.active .errorTxtBlock>img{
+  width: 36px;
+  height: 36px;
+  filter: brightness(0) invert(1);
+}
+.header.active .divider{
+  background: #FFF;
+}
+.divider{
+  height: 25px;
+  position: absolute;
+  top: 50%;
+  width: 1px;
+  background: #707070;
+  transform: translateY(-50%);
+}
+.header{
+  position: relative;
+}
+.disableIcon{
+  opacity:0.5 !important;
+  pointer-events: none !important;
+}
+.progressBar{
+  border: 1px solid #D0D0CE;
+  /* height: 8px; */
+  background-color: #f2f2f2;
+  /* margin-top: -35px; */
+  width: 100px;
+  border-radius: 4px;
+}
+.progress{
+  height: 6px;
+  /* text-align: center; */
+  background: #07AE4B 0% 0% no-repeat padding-box;
+  opacity: 1;
+  /* margin-top: -31px; */
+  border-radius: 4px !important;
+  margin-top: -.5px;
+}
+.cmpltnsts{
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: 100px;
+}

@@ -1,0 +1,64 @@
+<div class="componentMargin">
+    <div class="alignNewReq">
+        <div>
+            <img src="/assets/filterIcon.svg" alt="Filter icon">
+            <span class="blueText14 ms-2">Filter Criteria</span>
+        </div>
+        <div class="ms-3">
+            <img src="../../assets/excelIcon.svg" alt="Excel icon" width="20px" height="20px" />
+        </div>
+    </div>
+
+    <table class="task-table table tableStyle mt-3">
+        <thead>
+            <tr>
+                <th>Associate ID</th>
+                <th>Request ID</th>
+                <th>Activity Name (Code)</th>
+                <th>Activity Type</th>
+                <th>Request Date</th>
+                <th>Request Age (Days)</th>
+                <th>POC</th>
+                <th>Status</th>
+                <th class="actions">Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let activity of currentTotalActivities">
+                <td>{{activity.associateId}}</td>
+                <td>{{activity.requestId}}</td>
+                <td>{{activity.activityName}}</td>
+                <td>{{activity.activityType}}</td>
+                <td>{{activity.requestDate}}</td>
+                <td>{{activity.requestAge}}</td>
+                <td>{{activity.poc}}</td>
+                <td>
+                    <div class="dotsAlign">
+                        <p class="yellowDot" *ngIf="activity.status === 'Pending with Academy'"></p>
+                        <p class="redDot" *ngIf="activity.status === 'Rejected'"></p>
+                        <p class="greenDot" *ngIf="activity.status === 'Completed'"></p>
+                        <p>{{activity.status}}</p>
+                    </div>
+                </td>
+                <td class="actions">
+                    <span class="blueDots" triggers="click" [popoverOnHover]="false"
+                        [popoverCloseOnMouseOutside]="false" [popover]="listPopover"></span>
+                    <popover-content #listPopover triggers="click" [closeOnMouseOutside]="false" placement="bottom-left"
+                        [animation]="true" [closeOnClickOutside]="true">
+                        <ul class="link-list">
+                            <li>Get link</li>
+                            <li>Insights</li>
+                            <li>Hide Reel </li>
+                        </ul>
+                    </popover-content>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <app-pagination-ui [entireDataList]="totalActivities" (pageChanges)="paginationTotalActivities($event)"
+        [itemsPerPage]="3"></app-pagination-ui>
+</div>
+
+
+

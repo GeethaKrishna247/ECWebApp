@@ -1,0 +1,172 @@
+/** Desktop View CSS **/
+
+.routerWrapper {
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+    float: left;
+    width: 100%;
+    max-width: 99%;
+  }
+  
+  .routerContainer {
+    max-width: 1200px;
+    width: 100%;
+    margin: auto;
+    max-height: calc(100vh - 100px);
+  }
+  
+  @media only screen and (min-width: 1024px) {
+    .app-container {
+      padding: 0;
+    }
+  }
+  
+  @media only screen and (max-width: 1024px) {
+    .routerWrapper {
+      overflow-y: auto !important;
+      overflow-x: hidden !important;
+    }
+  }
+
+  
+img.close-icon {
+  position: absolute;
+  right: 2rem;
+  top: 1rem;
+  z-index: 2;
+}
+
+button.secondaryBtn.blueBtn.skipBtn {
+  position: absolute;
+  bottom: 8%;
+  right: 0px;
+  color: #2d67ff;
+  font-weight: bold;
+  border: 1px solid #2D67FF;
+}
+
+.carousel-control-next, .carousel-control-prev {
+  width: 5% !important;
+  cursor: default !important;
+  top: 10%;
+  height: 80%;
+}
+
+.carousel-control-prev {
+  left: 0.8rem;
+}
+
+.carousel-control-next {
+  right: 0.9rem;
+}
+
+a > .prev-icon {
+  background: url(/assets/left_nav.svg)center no-repeat !important;
+  display: inline-block;
+  width: 65px;
+  height: 65px;
+  background: no-repeat 50%/100% 100%;
+  cursor: pointer;
+}
+a .prev-dis{
+  background:url(/assets/prev_arrow_black.png) center white  no-repeat !important;
+  display: inline-block;
+    width: 47px;
+    height: 47px;
+}
+a > .next-icon {
+  background: url(/assets/right_nav.svg)center no-repeat !important;
+  display: inline-block;
+  width: 65px;
+  height: 65px;
+  background: no-repeat 50%/100% 100%;
+  cursor: pointer;
+}
+a .next-dis{
+  background:url(/assets/next_arrow_black.png) center white no-repeat !important;
+  display: inline-block;
+    width: 47px;
+    height: 47px;
+}
+
+#tourPagesCarousel img.d-block.w-100 {
+  cursor: default !important;
+}
+/*.cd {
+  cursor: default !important;
+}*/
+a.cd_1 span.prev-icon,
+a.cd_7 span.next-icon {
+  cursor: default !important;
+}
+
+a.carousel-control-prev.cd_1,
+a.carousel-control-next.cd_7, 
+ a.carousel-control-prev.cd_1:hover,
+a.carousel-control-next.cd_7:hover {
+  opacity: 0.5 !important;
+}
+
+@media only screen and (max-width: 520px) {
+  button.secondaryBtn.blueBtn.skipBtn {
+    position: absolute;
+    bottom: 8%;
+    right: 0%;
+    font-weight: bold;
+  }
+}
+
+.closeIcon{
+  top: 0px;
+  right: 0px;
+  background-color: white;
+  position: fixed;
+  border-radius: 100%;
+  justify-content: center;
+  margin: 30px;
+  height: 32px;
+  display: flex;
+  width: 32px;
+       }
+ /* .box img:last-child {
+  display: none;  
+ }
+.box:hover img:last-child {
+  display: block;  
+  border-radius: 100%;
+  background-color: #2d67ff;
+}
+.box:hover img:first-child {
+ display: none;  
+ } */
+.closeIcon {
+  top: 0px;
+  right: 0px;
+  background-color: white;
+  position: fixed;
+  border-radius: 100%;
+  justify-content: center;
+  margin: 30px;
+  height: 32px;
+  display: flex;
+  width: 32px;
+}
+
+
+
+
+a .prev-dis {
+  background: url(/assets/prev_arrow_black.png) center white no-repeat !important;
+  display: inline-block;
+  width: 47px;
+  height: 47px;
+}
+
+
+
+a .next-dis {
+  background: url(/assets/next_arrow_black.png) center white no-repeat !important;
+  display: inline-block;
+  width: 47px;
+  height: 47px;
+}
